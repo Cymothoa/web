@@ -1,0 +1,696 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* 头部盒子 */
+.head{
+    width: 100%;
+    height: 105px;
+}
+/* top */
+.topHead{
+    width: 100%;
+    height: 70px;
+    background: #242424;
+    border-bottom: 1px solid #000;
+}
+.topMain{
+    width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+.logo{
+    width: 176px;
+    height: 100%;
+    background: url('../images/sprite.png');
+    cursor: pointer;
+}
+
+.topUl{
+    display: flex;
+}
+.topUl li{
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    color: #eee;
+    font-size: 14px;
+    cursor: pointer;
+}
+.topUl #selected{
+    width: 94px;
+    background: #000;
+}
+.topUl li:nth-child(2){
+    width: 94px;
+}
+.topUl li:nth-child(3){
+    width: 66px;
+}
+.topUl li:nth-child(4){
+    width: 66px;
+}
+.topUl li:nth-child(5){
+    width: 80px;
+}
+.topUl li:nth-child(6){
+    width: 80px;
+}
+.topUl li:last-child{
+    width: 108px;
+}
+
+.topSearch{
+    width: 158px;
+    height: 100%;
+    position: relative;
+}
+.topSearch input{
+    border-radius: 32px;
+    width: 158px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    padding-left: 25px;
+    font-size: 12px;
+    border: none;
+}
+.topSearch div{
+    width: 13px;
+    height: 13px;
+    background: url(../images/sprite.png);
+    position: absolute;
+    background-position: -10px 107px;
+    top: 28px;
+    left: 10px;
+}
+
+.topCreater{
+    width: 100px;
+    height: 100%;
+}
+.topCreater div{
+    width: 90px;
+    height: 32px;
+    margin: 19px 0 0 5px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #4F4F4F;
+    color: #ccc;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.topCreater div:hover{
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.login{
+    font-size: 12px;
+    color: #787878;
+    text-align: center;
+    width: 75px;
+    height: 70px;
+    line-height: 70px;
+}
+.login:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+/* nav */
+.topNav{
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    background-color: #C20C0C;
+    border-bottom: 1px solid #a40011;
+}
+.navMain{
+    width: 1100px;
+    height: 35px;
+    margin: 0 auto;
+    padding-left: 180px;
+}
+.navUl{
+    display: flex;
+}
+.navUl li{
+    font-size: 12px;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+.navUl #selected{
+    width: 50px;
+    background: #9B0909;
+    padding: 2px 13px;
+    margin: 8px 17px;
+}
+.navUl li:nth-child(2){
+    width: 62px;
+    padding: 2px 13px;
+    margin: 8px 17px;
+}
+.navUl li:nth-child(3){
+    width: 50px;
+    padding: 2px 13px;
+    margin: 8px 17px;
+}
+.navUl li:nth-child(4){
+    width: 74px;
+    padding: 2px 13px;
+    margin: 8px 17px;
+}
+.navUl li:nth-child(5){
+    width: 50px;
+    padding: 2px 13px;
+    margin: 8px 17px;
+}
+.navUl li:last-child{
+    width: 108px;
+    padding: 2px 13px;
+    margin: 8px 17px;
+}
+/* mainbody */
+.bannerPart{
+    width: 100%;
+    height: 285px;
+    background: plum;
+}
+/* banner */
+.banner{
+    width: 982px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.bannerMain{
+    width: 730px;
+    height: 100%;
+    background: #C20C0C;
+    z-index: 1;
+    position: relative;
+}
+.bannerMain img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: opacity 1s linear;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+.bannerMain .sele{
+    display: block;
+    opacity: 1;
+}
+.bannerList{
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    bottom: 5px;
+    left: 310px;
+}
+.bannerList li{
+    opacity: 0.5;
+    padding: 0 7px;
+    opacity: 0.6;
+    color: #fff;
+}
+.bannerList .now{
+    color: #C20C0C;
+    opacity: 0.9;
+}
+
+.downloadAD{
+    width: 254px;
+    height: 100%;
+    background: url('../images/position.png');
+    background-size: cover;
+}
+.btn{
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    width: 37px;
+    height: 66px;
+    font-size: 45px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+.prev{
+    left: -66px;
+    top: 106px;
+}
+.next{
+    right: -320px;
+    top: 106px;
+}
+/* ---------------------------------------------------------- */
+/* main */
+.mainBox{
+    height: 1425px;
+    width: 100%;
+    background: #f5f5f5;
+}
+.main{
+    width: 982px;
+    height: 1425px;
+    margin: 0 auto;
+    background: #000;
+    display: flex;
+}
+.mainLeft{
+    width: 729px;
+    height: 100%;
+    border-left: 1px solid #eee;
+    padding: 20px;
+    padding-bottom: 40px;
+}
+.hotTJ{
+    width: 100%;
+    height: 523px;
+    background: lavender;
+}
+.hotTitle{
+    width: 100%;
+    height: 35px;
+    padding-right: 10px;
+    border-bottom: 2px solid #C10D0C;
+    display: flex;
+    line-height: 35px;
+    font-size: 20px;
+    position: relative;
+}
+.iconCir{
+    width: 26px;
+    height: 25px;
+    margin: 5px 4px 3px 4px;
+    background: url('../images/iconhot.png');
+    background-size: cover;
+}
+.hotUl{
+    display: flex;
+    margin-left:20px;
+    cursor: pointer;
+}
+.hotUl li{
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+}
+.hotUl li:hover{
+    text-decoration: underline;
+}
+.hotUl span{
+    font-size: 12px;
+    margin: 0 10px;
+    color: #666;
+}
+.hotMore{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    margin: 0 10px;
+}
+.hotMore a{
+    color: #666;
+}
+.hotMore:hover{
+    text-decoration: underline;
+}
+.hotIcon{
+    height: 12px;
+    width: 12px;
+    background: url('../images/iconhot2.png');
+    background-size: cover;
+}
+
+.hotText{
+    margin-top: 20px;
+    margin-left: -42px;
+}
+.textLine{
+    display: flex;
+}
+.linePart{
+    width: 182px;
+    height: 234px;
+    padding-left: 42px;
+    padding-bottom: 30px;
+}
+.linePart a{
+    font-size: 14px;
+    color: #333;
+}
+.linePart a:hover{
+    text-decoration: underline;
+}
+
+.blank{
+    width: 100%;
+    height: 35px;
+    background: #fff;
+}
+
+.newDisc{
+    width: 100%;
+    height: 243px;
+    background: violet;
+}
+.discTitle{
+    width: 100%;
+    height: 35px;
+    padding-right: 10px;
+    border-bottom: 2px solid #C10D0C;
+    display: flex;
+    line-height: 35px;
+    font-size: 20px;
+    position: relative;
+}
+.iconCir2{
+    width: 26px;
+    height: 25px;
+    margin: 5px 4px 3px 4px;
+    background: url('../images/iconhot.png');
+    background-size: cover;
+}
+.discMore{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    margin: 0 10px;
+    color: #666;
+}
+.discIcon{
+    height: 12px;
+    width: 12px;
+    background: url('../images/iconhot2.png');
+    background-size: cover;
+}
+.discMore a{
+    color: #666;
+}
+.discMore:hover{
+    text-decoration: underline;
+}
+
+.discText{
+    width: 100%;
+    height: 188px;
+    margin-top: 20px;
+    margin-bottom: 37px;
+    background: lightblue;
+}
+.allBill{
+    width: 100%;
+    height: 527px;
+    background: khaki;
+}
+/* ----------------------------------------------------------- */
+/* 右侧 */
+.content .people{
+    flex:1;
+    height: 100%;
+}
+/* 用户登录 */
+.people .userLogin{
+    width: 245px;
+    height: 137px;
+    background-color: #f0e8e8;
+}
+.people .userLogin span{
+    font-size: 12px;
+    color: #666666;
+    margin-top: 0px;
+    display: block;
+    padding-top: 23px;
+    padding-left: 26px;
+}
+.people .userLogin button{
+    width: 70px;
+    height: 30px;
+    background-color: #9b0909;
+    border-radius: 5px;
+    outline: none;
+    border:1px solid #9b0909;
+    margin-left: 79px;
+    margin-top: 14px;
+}
+.people .userLogin button a{
+    font-size: 12px;
+    color: white;
+}
+.people .userLogin button:hover{
+    cursor: pointer;
+    background-color: #d30a0a;
+}
+/* 歌手 */
+.people .singer{
+    width: 100%;
+    height: 465px;
+}
+.people .singer span{
+    font-size: 12px;
+    color: #333333;
+    margin-left: 23px;
+    margin-top: 13px;
+    display: inline-block;
+}
+.people .singer span a{
+    margin-left: 78px;
+    color: #666666;
+}
+.people .singer span a:hover{
+    cursor: pointer;
+}
+.people .singer .singerLine{
+    width: 214px;
+    height: 1px;
+    background-color: #dfd7d7;
+    margin-top: 4px;
+    margin-left: 19px;
+}
+.people .singer .role{
+    margin-left: 20px;
+    margin-top: 12px;
+    border: 1px solid #e7eee8;
+    width: 210px;
+    height: 62px;
+    display: flex;
+}
+.people .singer .role img{
+    width: 60px;
+    height: 60px;
+    flex: 1;
+}
+.people .singer .role img:hover{
+    cursor: pointer;
+}
+.people .singer .role .roleIn{
+    flex: 2.5;
+    background-color: #fdf9f9;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.people .singer .role .roleIn a:hover{
+    cursor: pointer;
+}
+.people .singer .role .roleIn .name{
+    font-size: 12px;
+    color: #333333;
+    font-weight: bold;
+}
+.people .singer .role .roleIn .nameIn{
+    font-size: 12px;
+    color: #666666;
+}
+.people .singer button{
+    width: 200px;
+    height: 30px;
+    margin-left: 25px;
+    margin-top: 14px;
+    border: 1px solid #e7eee8;
+    border-radius: 4px;
+}
+.people .singer button:hover{
+    cursor: pointer;
+}
+.people .singer button a{
+    font-size: 12px;
+}
+/* 主播 */
+.people .anchor{
+    width: 100%;
+    height: 380px;
+}
+.people .anchor{
+    width: 100%;
+    height: 465px;
+}
+.people .anchor span{
+    font-size: 12px;
+    color: #333333;
+    margin-left: 23px;
+    margin-top: 13px;
+    display: inline-block;
+}
+.people .anchor span a{
+    margin-left: 78px;
+    color: #666666;
+}
+.people .anchor .anchorLine{
+    width: 214px;
+    height: 1px;
+    background-color: #e0dada;
+    margin-top: 4px;
+    margin-left: 19px;
+}
+.people .anchor .role{
+    margin-left: 20px;
+    margin-top: 12px;
+    width: 210px;
+    height: 40px;
+    display: flex;
+}
+.people .anchor .role a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.people .anchor .role img{
+    width: 40px;
+    height: 40px;
+    flex: 1;
+}
+.people .anchor .role img:hover{
+    cursor: pointer;
+}
+.people .anchor .role .roleIn{
+    flex: 3.3;
+    padding-left: 4px;
+}
+.people .anchor .role .roleIn .name{
+    font-size: 12px;
+    color: #333333;
+}
+.people .anchor .role .roleIn .nameIn{
+    font-size: 12px;
+    color: #666666;
+}
+/* ------------------------------------------------------------------------- */
+/* footer */
+.footer{
+    width: 100%;
+    height: 326px;
+    background: cadetblue;
+    border-top: 1px solid #d3d3d3;
+    background: #f2f2f2;
+}
+.foot{
+    width: 980px;
+    height: 231px;
+    margin: 33px auto;
+}
+.footIcon{
+    width: 980px;
+    height: 71px;
+    margin-top: 33px;
+    display: flex;
+}
+.iconList{
+    width: 45px;
+    height: 72px;
+    margin: 0 40px;
+}
+.img{
+    width: 45px;
+    height: 45px;
+    background: url('../images/sprite4.png');
+    background-size: 220px 220px;
+}
+.icon1{
+    background-position: -170px -5px;
+}
+.icon2{
+    background-position: -5px -170px;
+}
+.icon3{
+    background-position: -5px -60px;
+}
+.icon4{
+    background-position: -170px -5px;
+}
+.icon5{
+    background-position: -60px -60px;
+}
+.icon6{
+    background-position: -115px -115px;
+}
+.icon7{
+    background-position: -5px -170px;
+}
+.icon8{
+    background-position: -170px -115px;
+}
+
+.iconList span{
+    width: 100px;
+    margin-top: 10px;
+    margin-left: -27.5px;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    color: rgba(0,0,0, 0.5);
+    display: inline-block;
+}
+
+.footText{
+    text-align: center;
+    padding-top: 60px;
+}
+.footText p a{
+    font-size: 12px;
+    text-align: center;
+    color: rgba(0,0,0, 0.5);
+}
+.footText p a:hover{
+    text-decoration: underline;
+}
+.footText p span{
+    font-size: 12px;
+    text-align: center;
+    color: rgba(0,0,0, 0.5);
+    display: inline-block;
+}
+.police-logo{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('../images/police.png');
+    background-size: 14px;
+}
+/* player */
+.player{
+    width: 100%;
+    height: 53px;
+    background: #242424;
+    position: fixed;
+    bottom: 0;
+    box-shadow:-10px 0 10px 3px #242424;
+}
