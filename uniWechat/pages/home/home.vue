@@ -33,10 +33,10 @@
 		<view v-for="(item,index) in productList" :key="index">
 			<view class="plPart">
 				<view class="plpTitle">
-					<view class="title">
+					<view class="title" style="margin-left: 40rpx;">
 						{{item.title}}
 					</view>
-					<view class="">
+					<view class="" style="margin-right: 40rpx;">
 						查看更多
 					</view>
 				</view>

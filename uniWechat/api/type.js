@@ -8,6 +8,7 @@ export function categoryInfo(data){
 	})
 }
 
+// 商品列表
 export function pageProd(data){
 	return request({
 		url:"/prod/pageProd",
