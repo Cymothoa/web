@@ -18,3 +18,12 @@ export function isCollection(data){
 		params:data
 	})
 }
+
+// 返回商品评论数据（好评率 好评数量 中评数 差评数）
+export function prodComm(data){
+	return service({
+		url:"/prodComm/prodCommData",
+		method:"get",
+		params:data
+	})
+}
