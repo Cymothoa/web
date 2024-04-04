@@ -27,3 +27,21 @@ export function prodComm(data){
 		params:data
 	})
 }
+
+// 结算，生成订单信息
+export function confirm(data){
+	return service({
+		url:"/p/order/confirm",
+		method:"post",
+		params:data
+	})
+}
+
+// 添加、修改购物车物品
+export function changeItem(data){
+	return service({
+		url:"/p/shopCart/changeItem",
+		method:"post",
+		params:data
+	})
+}
