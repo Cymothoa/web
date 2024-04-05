@@ -39,11 +39,17 @@
 					userName: this.userName,
 					passWord: encrypto(this.passWord)
 				})
-				if(result){
+				if(result.accessToken){
+					uni.setStorageSync("token",result.accessToken);
 					uni.switchTab({
 						url:"/pages/home/home"
 					})
 				}
+				// if(result){
+				// 	uni.switchTab({
+				// 		url:"/pages/home/home"
+				// 	})
+				// }
 				// console.log((result))
 			}
 		}

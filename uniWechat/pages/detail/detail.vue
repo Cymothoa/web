@@ -222,7 +222,7 @@
 					skuId: 0,
 					shopId: 0,
 					count: 0,
-					distributionCardNo: "string"
+					distributionCardNo: ""
 				}
 			}
 		},
@@ -235,13 +235,13 @@
 			// console.log(result, 'result');
 			this.productList = result;
 			// 收藏
-			// isCollection({
-			// 	prodId:options.id
-			// }).then(res=>{
-			// 	console.log(res,"收藏")
-			// 	this.isCollection=res;
+			isCollection({
+				prodId:options.id
+			}).then(res=>{
+				console.log(res,"收藏")
+				this.isCollection=res;
 
-			// })
+			})
 			// 默认已选
 			this.init(result.skuList);
 			// 评论
@@ -370,8 +370,15 @@
 				this.shopCar.skuId=this.defaultStr.skuId;
 				this.shopCar.shopId=this.prodData.shopId;
 				this.shopCar.count=this.confirm.orderItem.prodCount;
+				// this.distributionCardNo="string"
 				changeItem(this.shopCar).then(res=>{
 					console.log(res,"res")
+					uni.showToast({
+						title:'添加成功！',
+						icon:'success',
+						duration:2000
+					})
+					this.showPartOne=false;
 				})
 			}
 		}

@@ -1,7 +1,7 @@
-import request from "@/utils/request.js";
+import service from "@/utils/request.js";
 
 export function toLogin(data){
-	return request({
+	return service({
 		url:"/login",
 		method:"post",
 		data:data
@@ -9,7 +9,7 @@ export function toLogin(data){
 }
 
 export function toRegister(data){
-	return request({
+	return service({
 		url:"/user/register",
 		method:"post",
 		data:data
