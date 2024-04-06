@@ -4,8 +4,8 @@
 		<view class="uni-margin-wrap">
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" autoplay="true" interval="2500"
 				indicatorDots="true" duration="500">
-				<swiper-item v-for="(item,index) in prodInfoList" :key="index">
-					<image :src="item.pic" mode="" class="oneofImg"></image>
+				<swiper-item v-for="(item,index) in reProductList.imgs" :key="index">
+					<image :src="item" mode="" class="oneofImg"></image>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -51,8 +51,11 @@
 			<view class="show_main">
 				<view class="space" style="height: 36rpx;"></view>
 				<!-- 商品信息 -->
-				<van-card :num="confirm.orderItem.prodCount" :price="defaultStr.price" :desc="productList.brief"
-					:title="defaultStr.skuName" :thumb="defaultStr.pic">
+				<van-card :num="confirm.orderItem.prodCount" 
+				:price="defaultStr.price? defaultStr.price:prodData.price" 
+				:desc="productList.brief"
+					:title="defaultStr.skuName? defaultStr.skuName:prodData.prodName" 
+					:thumb="defaultStr.pic? defaultStr.pic:prodData.pic">
 					<template #footer>
 						<view>
 							<van-stepper :value="confirm.orderItem.prodCount" @change="onChange" />
@@ -115,8 +118,11 @@
 			<view class="show_main">
 				<view class="space" style="height: 36rpx;"></view>
 				<!-- 商品信息 -->
-				<van-card :num="confirm.orderItem.prodCount" :price="defaultStr.price" :desc="productList.brief"
-					:title="defaultStr.skuName" :thumb="defaultStr.pic">
+				<van-card :num="confirm.orderItem.prodCount"
+				:price="defaultStr.price? defaultStr.price:prodData.price" 
+				:desc="productList.brief"
+					:title="defaultStr.skuName? defaultStr.skuName:prodData.prodName" 
+					:thumb="defaultStr.pic? defaultStr.pic:prodData.pic">
 					<template #footer>
 						<view>
 							<van-stepper :value="confirm.orderItem.prodCount" @change="onChange" />
@@ -140,10 +146,8 @@
 				<!-- 结单按钮 -->
 				<view class="show_button">
 					<!-- <button style="flex: 1;background-color: #c3c3c3;border-radius: 0%;color: #fff;">加入购物车</button> -->
-					<van-button class="left" :disabled="defaultStr.price?false:true" color="#c3c3c3"
-					@click="shopcarAdd"
-					>加入购物车</van-button>
-					<van-button class="right" :disabled="defaultStr.price?false:true" color="#f00">立即购买</van-button>
+					<van-button class="left" :disabled="defaultStr.price?false:true" color="#c3c3c3" @click="shopcarAdd">加入购物车</van-button>
+					<van-button class="right" :disabled="defaultStr.price?false:true" color="#f00" @click="buynow">立即购买</van-button>
 				</view>
 			</view>
 		</van-action-sheet>
@@ -172,7 +176,9 @@
 		data() {
 			return {
 				// 轮播列表
-				prodInfoList: [],
+				// prodInfoList: [],
+				// 重新渲染轮播图
+				reProductList:[],
 				// 商品列表
 				productList: [],
 				// 该商品是否收藏
@@ -197,21 +203,17 @@
 				tags: [], //将init的propObject转成数组
 				// 结单
 				confirm: {
-					basketIds: [
-						0
-					],
+					basketIds: [],
 					orderItem: {
 						prodId: 0,
 						skuId: 0,
 						prodCount: 1,
 						shopId: 0,
-						distributionCardNo: "string"
+						distributionCardNo: ""
 					},
 					addrId: 0,
 					userChangeCoupon: 0,
-					couponIds: [
-						0
-					]
+					couponIds: []
 				},
 				selectedTag: {},
 				skuList: [],
@@ -231,14 +233,17 @@
 			let result = await prodInfo({
 				prodId: options.id
 			});
-			this.prodInfoList = result.skuList;
+			result.imgs=result.imgs.split(",")
+			this.reProductList=result;
+			// console.log(this.reProductList,"reproductList")
+			// this.prodInfoList = result.skuList;
 			// console.log(result, 'result');
 			this.productList = result;
 			// 收藏
 			isCollection({
 				prodId:options.id
 			}).then(res=>{
-				console.log(res,"收藏")
+				// console.log(res,"收藏")
 				this.isCollection=res;
 
 			})
@@ -371,6 +376,7 @@
 				this.shopCar.shopId=this.prodData.shopId;
 				this.shopCar.count=this.confirm.orderItem.prodCount;
 				// this.distributionCardNo="string"
+				console.log(this.shopCar,"点击add")
 				changeItem(this.shopCar).then(res=>{
 					console.log(res,"res")
 					uni.showToast({
@@ -379,6 +385,17 @@
 						duration:2000
 					})
 					this.showPartOne=false;
+				})
+			},
+			buynow(){
+				this.confirm.orderItem.prodId=this.prodData.prodId;
+				this.confirm.orderItem.skuId=this.defaultStr.skuId;
+				this.confirm.orderItem.shopId=this.prodData.shopId;
+				this.confirm.orderItem.distributionCardNo= "";
+				// 存到storage中 用于 传到order页
+				uni.setStorageSync('confirm',JSON.stringify(this.confirm))
+				uni.navigateTo({
+					url:'/pages/order/order'
 				})
 			}
 		}
@@ -479,5 +496,8 @@
 	.prop_select {
 		color: #fff !important;
 		background-color: #f00 !important;
+	}
+	.disapper{
+		display: none;
 	}
 </style>
