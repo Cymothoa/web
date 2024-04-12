@@ -33,7 +33,7 @@ export function confirm(data){
 	return service({
 		url:"/p/order/confirm",
 		method:"post",
-		params:data
+		data:data
 	})
 }
 
@@ -42,6 +42,6 @@ export function changeItem(data){
 	return service({
 		url:"/p/shopCart/changeItem",
 		method:"post",
-		params:data
+		data:data
 	})
 }

@@ -1,0 +1,15 @@
+1.购物车页面设计接口
+A.获取用户购物车信息 /p/shopCart/info
+B.获取购物车商品数量/p/shopCart/prodCount
+C.获取选中购物项总计、选中的商品数量,参数为购物车id数组 /p/shopCart/totalPay
+D.通过商品id(prodId)、skuId、店铺Id(shopId),添加/修改用户购物车商品 /p/shopCart/changeItem
+E.通过购物车id删除用户购物车物品 /p/shopCart/deleteItem
+F.用户地址列表 /p/address/list
+2.地址部分设计接口
+A.用户地址列表 /p/address/list
+B.根据地址id，设置默认地址 /p/address/defaultAddr/
+C.新增用户地址 /p/address/addAddr
+D.获取省市区信息 /p/area/listByPid
+E.修改用户地址 /p/address/updateAddr
+F.根据地址id，删除用户地址 /p/address/deleteAddr/
+

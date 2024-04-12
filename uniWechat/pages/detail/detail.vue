@@ -376,9 +376,9 @@
 				this.shopCar.shopId=this.prodData.shopId;
 				this.shopCar.count=this.confirm.orderItem.prodCount;
 				// this.distributionCardNo="string"
-				console.log(this.shopCar,"点击add")
+				// console.log(this.shopCar,"点击add")
 				changeItem(this.shopCar).then(res=>{
-					console.log(res,"res")
+					// console.log(res,"res")
 					uni.showToast({
 						title:'添加成功！',
 						icon:'success',
